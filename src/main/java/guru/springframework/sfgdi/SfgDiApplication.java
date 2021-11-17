@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
 import guru.springframework.sfgdi.controllers.ConstructorInjetedController;
+import guru.springframework.sfgdi.controllers.I18nController;
 import guru.springframework.sfgdi.controllers.MyController;
 import guru.springframework.sfgdi.controllers.PropertyInjectedController;
 import guru.springframework.sfgdi.controllers.SetterInjectedController;
@@ -17,9 +18,7 @@ public class SfgDiApplication {
 
 		MyController myController = (MyController) cpx.getBean("myController");
 
-		String greeting = myController.sayHello();
-
-		System.out.println(greeting);
+		System.out.println(myController.sayHello());
 
 		System.out.println("------- Property");
 
@@ -38,6 +37,12 @@ public class SfgDiApplication {
 		ConstructorInjetedController constructorInjetedController = (ConstructorInjetedController) cpx.getBean("constructorInjetedController");
 
 		System.out.println(constructorInjetedController.getGreeting());
+
+		System.out.println("------- Profiles");
+		
+		I18nController i18nController = (I18nController) cpx.getBean("i18nController");
+
+		System.out.println(i18nController.getGreeting());
 	}
 
 }
